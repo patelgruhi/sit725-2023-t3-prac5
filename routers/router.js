@@ -2,17 +2,16 @@ let express = require('express');
 let router = express.Router();
 let controller = require('../controllers/controller');
 
-router.post('/', function(req,res){
-    controller.postCat(req,res);
+router.post('/', function (req, res) {
+    controller.postCat(req, res);
 });
 
-router.get('/', (req,res)=>{
-    controller.getAllCats(req,res);
+router.get('/', (req, res) => {
+    controller.getAllCats(req, res);
 });
 
-router.delete('/', (req,res)=>{
-    controller.getAllCats(req,res);
+router.delete('/', (req, res) => {
+    controller.deleteCat(req, res); // Assuming you want to call the deleteCat function here
 });
 
-
-module.exports = router;
+module.exports = router; // Corrected the typo here

@@ -1,29 +1,32 @@
 let collection = require('../models/cat');
 
-const postCat = (req,res) => {
+const postCat = (req, res) => {
     let cat = req.body;
-    collection.postCat(cat, (err,result) => {
+    collection.postCat(cat, (err, result) => {
         if (!err) {
-            res.json({statusCode:201,data:result,message:'success'});
+            res.json({ statusCode: 201, data: result, message: 'success' });
         }
     });
 }
 
-const getAllCats = (req,res) => {
-    collection.getAllCats((error,result)=>{
+const getAllCats = (req, res) => {
+    console.log("In Controller..");
+    collection.getAllCats((result, error) => {
+        console.log("In Controller Success");
         if (!error) {
-            res.json({statusCode:200,data:result,message:'success'});
+            console.log("Controlles Success");
+            res.json({ statusCode: 200, data: result, message: 'success' });
         }
     });
 }
 
-const deleteCat = (req,res) => {
+const deleteCat = (req, res) => {
     let cat = req.body;
-    collection.deleteOne(cat, (err,result) => {
+    collection.deleteOne(cat, (err, result) => {
         if (!err) {
-            res.json({statusCode:201,data:result,message:'success'});
+            res.json({ statusCode: 201, data: result, message: 'success' });
         }
     });
 }
 
-module.exports = {postCat,getAllCats}
+module.exports = { postCat, getAllCats }
